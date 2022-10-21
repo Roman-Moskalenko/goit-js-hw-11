@@ -1,28 +1,310 @@
-.example {
+* {
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1em;
   line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  background-image: linear-gradient(
+    1000deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.search-container {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  border-bottom-right-radius: 5000px;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  box-shadow: 5px 5px 7px #606060, -5px -5px 7px #ffffff;
+  z-index: 1;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  width: 20%;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  font: inherit;
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top-left-radius: 5000px;
+  border-bottom-left-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
   color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &[type='text']:focus {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  border: none;
+  background-color: rgb(200, 200, 200);
+  border-top-right-radius: 5000px;
+  border-bottom-right-radius: 5000px;
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.gallery-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+}
+
+.gallery,
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  margin-left: -20px;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+.gallery__link {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-width: 270px;
+  flex-basis: calc((100% - 80px) / 4);
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top-left-radius: 40px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.gallery__link:hover,
+.gallery__link:focus {
+  transform: scale(1.05);
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.gallery-item__img {
+  display: block;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.info-item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.btn-load-more.is-hidden {
+  display: none;
+}
+
+.btn-load-more {
+  display: block;
+  margin: 25px auto 0 auto;
+  padding: 8px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-to-top {
+  position: fixed;
+  bottom: 3vh;
+  right: 1vw;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
 }
